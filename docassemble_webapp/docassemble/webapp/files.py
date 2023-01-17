@@ -208,7 +208,7 @@ class SavedFile:
                 except:
                     pass
         if hasattr(self, 'directory') and os.path.isdir(self.directory):
-            shutil.rmtree(self.directory)
+            shutil.rmtree(self.directory, ignore_errors = True)
         del docassemble.base.functions.this_thread.saved_files[str(self.section)][int(self.file_number)]
 
     def save(self, finalize=False):
